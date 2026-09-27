@@ -59,6 +59,7 @@ class MaterialForm
                         ->schema([
                             FileUpload::make('image')
                                 ->disk('r2')
+                                ->preserveFilenames()
                         ]),
                 ])->columnSpan(5),
 

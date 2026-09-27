@@ -51,6 +51,7 @@ class DocumentForm
                     ->schema([
                         FileUpload::make('document_upload')
                             ->label('Document file')
+                            ->preserveFilenames()
                             ->disk('r2')
                             ->required(fn(string $operation) => $operation === 'create')
                             ->storeFiles(false)
