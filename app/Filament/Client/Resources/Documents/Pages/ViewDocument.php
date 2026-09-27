@@ -1,0 +1,24 @@
+<?php
+
+namespace App\Filament\Client\Resources\Documents\Pages;
+
+use App\Filament\Client\Resources\Documents\DocumentResource;
+use Filament\Actions\EditAction;
+use Filament\Resources\Pages\ViewRecord;
+
+class ViewDocument extends ViewRecord
+{
+    protected static string $resource = DocumentResource::class;
+
+    public function getHeading(): string
+    {
+        return 'View ' . $this->record->title;
+    }
+
+    protected function getHeaderActions(): array
+    {
+        return [
+            // EditAction::make(),
+        ];
+    }
+}
