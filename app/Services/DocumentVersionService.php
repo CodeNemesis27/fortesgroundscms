@@ -10,6 +10,7 @@ use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
 use RuntimeException;
 
 /**
@@ -78,9 +79,24 @@ class DocumentVersionService
         });
     }
 
+    private function readUploadedContents(UploadedFile $file): string
+    {
+        // Livewire-backed temp uploads (FileUpload with storeFiles(false)) may
+        // live on a remote disk rather than local — e.g. when Livewire's temp
+        // upload disk is set to R2/S3, which is common on ephemeral hosts like
+        // Laravel Cloud. getRealPath() only returns a usable path for genuinely
+        // local files, so file_get_contents() on it fails otherwise. get()
+        // reads correctly either way.
+        if ($file instanceof TemporaryUploadedFile) {
+            return $file->get();
+        }
+
+        return file_get_contents($file->getRealPath());
+    }
+
     private function storeNewVersion(Document $document, UploadedFile $file, User $uploader, ?string $notes): DocumentVersion
     {
-        $plaintext = file_get_contents($file->getRealPath());
+        $plaintext = $this->readUploadedContents($file);
         $checksum = hash('sha256', $plaintext);
 
         $encrypted = $this->encryption->encrypt($plaintext);
