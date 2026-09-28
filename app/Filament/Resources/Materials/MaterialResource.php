@@ -19,7 +19,7 @@ class MaterialResource extends Resource
 {
     protected static ?string $model = Material::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedCube;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::Cube;
 
     protected static string | UnitEnum | null $navigationGroup = 'Procurement';
 

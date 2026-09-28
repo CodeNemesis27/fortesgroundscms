@@ -15,7 +15,7 @@ use Filament\Support\Icons\Heroicon;
 
 class Dashboard extends BaseDashboard
 {
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleGroup;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::RectangleGroup;
 
     protected static ?string $navigationLabel = 'Dashboard';
 

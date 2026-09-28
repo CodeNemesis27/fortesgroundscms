@@ -62,7 +62,6 @@ class AppServiceProvider extends ServiceProvider
                 ->failWhenUsedSpaceIsAbovePercentage(80),
             DomainCheck::new()
                 ->daily()
-                ->domain('https://fortesgroundscms-production-xewgem.laravel.cloud')
                 ->warnWhenDaysLeftToDomainExpiry(28)
                 ->failWhenDaysLeftToDomainExpiry(7),
             UsedMemoryCheck::new()

@@ -68,6 +68,7 @@ class AdminPanelProvider extends PanelProvider
                     ->maxWidth(320),
                 FilamentSpatieLaravelHealthPlugin::make()
                     ->navigationGroup('System Management')
+                    ->navigationIcon('heroicon-s-heart')
             ])
             ->renderHook(PanelsRenderHook::TOPBAR_BEFORE, fn() => view('filament.announcement-banner'))
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\Filament\Resources')

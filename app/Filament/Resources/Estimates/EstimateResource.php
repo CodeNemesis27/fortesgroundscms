@@ -22,7 +22,7 @@ class EstimateResource extends Resource
 {
     protected static ?string $model = Estimate::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedCalculator;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::Calculator;
 
     protected static string | UnitEnum | null $navigationGroup = 'Project Management';
 

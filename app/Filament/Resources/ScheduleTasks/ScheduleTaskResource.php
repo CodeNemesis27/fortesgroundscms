@@ -23,7 +23,7 @@ class ScheduleTaskResource extends Resource
 {
     protected static ?string $model = ScheduleTask::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedClipboardDocumentList;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::ClipboardDocumentList;
 
     protected static string | UnitEnum | null $navigationGroup = 'Project Management';
 
