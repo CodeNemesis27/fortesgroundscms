@@ -27,6 +27,7 @@ use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Martin6363\SidebarResize\SidebarResizePlugin;
 use Openplain\FilamentShadcnTheme\Color;
+use ShuvroRoy\FilamentSpatieLaravelHealth\FilamentSpatieLaravelHealthPlugin;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -64,7 +65,9 @@ class AdminPanelProvider extends PanelProvider
                 FilamentInboxPlugin::make(),
                 SidebarResizePlugin::make()
                     ->minWidth(260)
-                    ->maxWidth(320)
+                    ->maxWidth(320),
+                FilamentSpatieLaravelHealthPlugin::make()
+                    ->navigationGroup('System Management')
             ])
             ->renderHook(PanelsRenderHook::TOPBAR_BEFORE, fn() => view('filament.announcement-banner'))
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\Filament\Resources')

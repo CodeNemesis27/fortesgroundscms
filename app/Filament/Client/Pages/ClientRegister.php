@@ -26,15 +26,22 @@ class ClientRegister extends BaseRegister
                     Step::make('Name and Contact')
                         ->description('Fullname and contact info')
                         ->schema([
-                            $this->getNameFormComponent(),
+                            TextInput::make('name')
+                                ->label(__('filament-panels::auth/pages/register.form.name.label'))
+                                ->required()
+                                ->placeholder(__('Enter full name'))
+                                ->maxLength(255)
+                                ->autofocus(),
                             TextInput::make('contact_no')
                                 ->label('Contact No.')
                                 ->tel()
+                                ->autofocus()
                                 ->required()
                                 ->placeholder('09156119397')
                                 ->maxLength(255),
                             TextInput::make('address')
                                 ->required()
+                                ->autofocus()
                                 ->placeholder('Enter complete address')
                                 ->columnSpanFull(),
                         ]),
