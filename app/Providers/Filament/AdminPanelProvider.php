@@ -70,7 +70,6 @@ class AdminPanelProvider extends PanelProvider
                 FilamentSpatieLaravelHealthPlugin::make()
                     ->navigationGroup('System Management')
                     ->navigationIcon('heroicon-s-heart'),
-                FilamentWatchdogPlugin::make(),
             ])
             ->renderHook(PanelsRenderHook::TOPBAR_BEFORE, fn() => view('filament.announcement-banner'))
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\Filament\Resources')
