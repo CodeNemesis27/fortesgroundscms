@@ -3,6 +3,8 @@
 namespace App\Providers\Filament;
 
 use App\Filament\Client\Pages\ClientRegister;
+use Awcodes\LightSwitch\Enums\Alignment;
+use Awcodes\LightSwitch\LightSwitchPlugin;
 use Filament\Auth\MultiFactor\App\AppAuthentication;
 use Filament\Enums\UserMenuPosition;
 use Filament\Http\Middleware\Authenticate;
@@ -59,7 +61,9 @@ class ClientPanelProvider extends PanelProvider
                 FilamentInboxPlugin::make(),
                 SidebarResizePlugin::make()
                     ->minWidth(260)
-                    ->maxWidth(320)
+                    ->maxWidth(320),
+                LightSwitchPlugin::make()
+                    ->position(Alignment::TopRight)
             ])
             ->discoverResources(in: app_path('Filament/Client/Resources'), for: 'App\Filament\Client\Resources')
             ->discoverPages(in: app_path('Filament/Client/Pages'), for: 'App\Filament\Client\Pages')

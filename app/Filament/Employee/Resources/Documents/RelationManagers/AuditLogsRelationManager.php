@@ -47,8 +47,6 @@ class AuditLogsRelationManager extends RelationManager
                     ->placeholder('System / anonymous'),
                 TextColumn::make('ip_address')
                     ->label('IP address'),
-                TextColumn::make('description')
-                    ->wrap(),
             ])
             ->filters([
                 //

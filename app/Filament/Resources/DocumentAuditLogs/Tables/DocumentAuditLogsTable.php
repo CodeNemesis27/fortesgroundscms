@@ -23,8 +23,6 @@ class DocumentAuditLogsTable
                 TextColumn::make('event')
                     ->badge()
                     ->searchable(),
-                TextColumn::make('description')
-                    ->searchable(),
                 TextColumn::make('ip_address')
                     ->searchable(),
                 TextColumn::make('created_at')

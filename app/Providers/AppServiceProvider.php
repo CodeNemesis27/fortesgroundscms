@@ -60,10 +60,6 @@ class AppServiceProvider extends ServiceProvider
             UsedDiskSpaceCheck::new()
                 ->warnWhenUsedSpaceIsAbovePercentage(60)
                 ->failWhenUsedSpaceIsAbovePercentage(80),
-            DomainCheck::new()
-                ->daily()
-                ->warnWhenDaysLeftToDomainExpiry(28)
-                ->failWhenDaysLeftToDomainExpiry(7),
             UsedMemoryCheck::new()
                 ->warnWhenUsedMemoryIsAbovePercentage(85)
                 ->failWhenUsedMemoryIsAbovePercentage(95),

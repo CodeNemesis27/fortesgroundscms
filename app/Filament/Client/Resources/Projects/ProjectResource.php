@@ -23,7 +23,7 @@ class ProjectResource extends Resource
 {
     protected static ?string $model = Project::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedBuildingOffice;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::BuildingOffice;
 
     protected static string | UnitEnum | null $navigationGroup = 'General';
 

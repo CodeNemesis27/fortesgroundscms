@@ -93,12 +93,10 @@ class DocumentsTable
                                 Stack::make([
                                     Split::make([
                                         TextColumn::make('versions.version_number')
-                                            ->sortable()
                                             ->color('gray')
                                             ->size(TextSize::ExtraSmall)
                                             ->formatStateUsing(fn($state) => "Current version: v{$state}"),
                                         TextColumn::make('category')
-                                            ->sortable()
                                             ->color('gray')
                                             ->size(TextSize::ExtraSmall)
                                             ->formatStateUsing(fn($state) => "Category: {$state}"),
