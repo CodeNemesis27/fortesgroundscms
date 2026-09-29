@@ -5,6 +5,7 @@ namespace App\Providers\Filament;
 use App\Filament\Pages\Dashboard;
 use Awcodes\LightSwitch\Enums\Alignment;
 use Awcodes\LightSwitch\LightSwitchPlugin;
+use BokshornIt\FilamentActivityTimeline\ActivityTimelinePlugin;
 use Caresome\FilamentAuthDesigner\AuthDesignerPlugin;
 use Caresome\FilamentAuthDesigner\Enums\MediaPosition;
 use Filament\Auth\MultiFactor\App\AppAuthentication;
@@ -70,6 +71,11 @@ class AdminPanelProvider extends PanelProvider
                 FilamentSpatieLaravelHealthPlugin::make()
                     ->navigationGroup('System Management')
                     ->navigationIcon('heroicon-s-heart'),
+                ActivityTimelinePlugin::make()
+                    ->navigationGroup('System Management')
+                    ->navigationIcon('heroicon-s-archive-box'),
+                LightSwitchPlugin::make()
+                    ->position(Alignment::TopRight)
             ])
             ->renderHook(PanelsRenderHook::TOPBAR_BEFORE, fn() => view('filament.announcement-banner'))
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\Filament\Resources')

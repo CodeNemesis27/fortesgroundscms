@@ -2,14 +2,17 @@
 
 namespace App\Models;
 
+use BokshornIt\FilamentActivityTimeline\Contracts\ProvidesActivityTitle;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\Activitylog\LogOptions;
+use Spatie\Activitylog\Traits\LogsActivity;
 
-class PurchaseOrder extends Model
+class PurchaseOrder extends Model implements ProvidesActivityTitle
 {
-    use SoftDeletes;
+    use SoftDeletes, LogsActivity;
 
     protected $fillable = [
         'project_id',
@@ -46,5 +49,18 @@ class PurchaseOrder extends Model
     public function approvedBy(): BelongsTo
     {
         return $this->belongsTo(User::class, 'approved_by');
+    }
+
+    public function getActivitylogOptions(): LogOptions
+    {
+        return LogOptions::defaults()
+            ->logFillable()
+            ->logOnlyDirty()
+            ->dontSubmitEmptyLogs();
+    }
+
+    public function activityTitle(): ?string
+    {
+        return $this->title;
     }
 }

@@ -9,6 +9,7 @@
         "php": "^8.2",
         "awcodes/light-switch": "^3.1",
         "barryvdh/laravel-dompdf": "^3.1",
+        "bokshorn-it/filament-activity-timeline": "^1.4",
         "caresome/filament-auth-designer": "^3.1",
         "doctrine/dbal": "^4.5",
         "f9webltd/laravel-health-opcache": "^1.0",

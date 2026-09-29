@@ -6,6 +6,7 @@ use App\Filament\Concerns\RegistersPdfFonts;
 use App\Filament\Resources\Materials\MaterialResource;
 use App\Models\Material;
 use Barryvdh\DomPDF\Facade\Pdf;
+use BokshornIt\FilamentActivityTimeline\Actions\ActivityTimelineAction;
 use Filament\Actions\Action;
 use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
