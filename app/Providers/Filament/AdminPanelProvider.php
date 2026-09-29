@@ -26,6 +26,7 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Martin6363\SidebarResize\SidebarResizePlugin;
+use MKWebDesign\FilamentWatchdog\FilamentWatchdogPlugin;
 use Openplain\FilamentShadcnTheme\Color;
 use ShuvroRoy\FilamentSpatieLaravelHealth\FilamentSpatieLaravelHealthPlugin;
 
@@ -68,7 +69,8 @@ class AdminPanelProvider extends PanelProvider
                     ->maxWidth(320),
                 FilamentSpatieLaravelHealthPlugin::make()
                     ->navigationGroup('System Management')
-                    ->navigationIcon('heroicon-s-heart')
+                    ->navigationIcon('heroicon-s-heart'),
+                FilamentWatchdogPlugin::make(),
             ])
             ->renderHook(PanelsRenderHook::TOPBAR_BEFORE, fn() => view('filament.announcement-banner'))
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\Filament\Resources')

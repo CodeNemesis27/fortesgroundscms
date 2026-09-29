@@ -18,6 +18,7 @@
         "laravel/tinker": "^2.10.1",
         "league/flysystem-aws-s3-v3": "3.0",
         "martin6363/filament-sidebar-resize": "^1.0",
+        "mkwebdesign/filament-watchdog-v5": "^1.0",
         "openplain/filament-shadcn-theme": "^1.1",
         "qalainau/filament-inbox": "^1.1",
         "shuvroroy/filament-spatie-laravel-health": "^3.3",
