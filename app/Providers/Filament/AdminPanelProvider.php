@@ -26,6 +26,7 @@ use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use JohnRivera7\FilamentAntivirus\FilamentAntivirusPlugin;
 use Martin6363\SidebarResize\SidebarResizePlugin;
 use MKWebDesign\FilamentWatchdog\FilamentWatchdogPlugin;
 use Openplain\FilamentShadcnTheme\Color;
@@ -74,8 +75,8 @@ class AdminPanelProvider extends PanelProvider
                 ActivityTimelinePlugin::make()
                     ->navigationGroup('System Management')
                     ->navigationIcon('heroicon-s-archive-box'),
-                LightSwitchPlugin::make()
-                    ->position(Alignment::TopRight)
+                FilamentAntivirusPlugin::make()
+                    ->navigationGroup('System Management')
             ])
             ->renderHook(PanelsRenderHook::TOPBAR_BEFORE, fn() => view('filament.announcement-banner'))
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\Filament\Resources')

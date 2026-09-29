@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2e2913ba35802d6eaa584d5a3ffa2795",
+    "content-hash": "5541cfe1b7685fcee7cc09971c9a182a",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -2986,6 +2986,78 @@
                 }
             ],
             "time": "2026-07-17T13:53:03+00:00"
+        },
+        {
+            "name": "johnrivera7/filament-antivirus",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Johnrivera7/filament-antivirus.git",
+                "reference": "d90270d35cca343cb7bf0463086aabf4ac9e55f3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Johnrivera7/filament-antivirus/zipball/d90270d35cca343cb7bf0463086aabf4ac9e55f3",
+                "reference": "d90270d35cca343cb7bf0463086aabf4ac9e55f3",
+                "shasum": ""
+            },
+            "require": {
+                "filament/filament": "^5.0",
+                "illuminate/contracts": "^11.28|^12.0|^13.0",
+                "illuminate/support": "^11.28|^12.0|^13.0",
+                "php": "^8.2",
+                "spatie/laravel-package-tools": "^1.16",
+                "symfony/process": "^6.4|^7.0|^8.0"
+            },
+            "require-dev": {
+                "laravel/pint": "^1.18",
+                "orchestra/testbench": "^10.0",
+                "phpunit/phpunit": "^11.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "aliases": {
+                        "Antivirus": "JohnRivera7\\FilamentAntivirus\\Facades\\Antivirus"
+                    },
+                    "providers": [
+                        "JohnRivera7\\FilamentAntivirus\\FilamentAntivirusServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "JohnRivera7\\FilamentAntivirus\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "John Rivera",
+                    "email": "johnriveragonzalez7@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Filament Antivirus — ClamAV upload scanning, quarantine and file security dashboard for Laravel.",
+            "homepage": "https://github.com/Johnrivera7/filament-antivirus",
+            "keywords": [
+                "antivirus",
+                "clamav",
+                "filament",
+                "filament-plugin",
+                "laravel",
+                "malware",
+                "quarantine",
+                "security"
+            ],
+            "support": {
+                "issues": "https://github.com/Johnrivera7/filament-antivirus/issues",
+                "source": "https://github.com/Johnrivera7/filament-antivirus/tree/v1.0.0"
+            },
+            "time": "2026-08-28T18:40:00+00:00"
         },
         {
             "name": "kirschbaum-development/eloquent-power-joins",
