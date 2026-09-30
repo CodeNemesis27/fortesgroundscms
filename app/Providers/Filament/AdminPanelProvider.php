@@ -28,7 +28,6 @@ use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use JohnRivera7\FilamentAntivirus\FilamentAntivirusPlugin;
 use Martin6363\SidebarResize\SidebarResizePlugin;
-use MKWebDesign\FilamentWatchdog\FilamentWatchdogPlugin;
 use Openplain\FilamentShadcnTheme\Color;
 use ShuvroRoy\FilamentSpatieLaravelBackup\FilamentSpatieLaravelBackupPlugin;
 use ShuvroRoy\FilamentSpatieLaravelHealth\FilamentSpatieLaravelHealthPlugin;
@@ -43,6 +42,7 @@ class AdminPanelProvider extends PanelProvider
             ->login()
             ->viteTheme('resources/css/filament/admin/theme.css')
             ->font('Onest')
+            ->brandName('FortesGrounds')
             ->profile()
             ->colors([
                 'primary' => Color::Default

@@ -28,7 +28,7 @@ class ClientRegister extends BaseRegister
             ->components([
                 Wizard::make([
                     Step::make('Name and Contact')
-                        ->description('Fullname and contact info')
+                        ->description('Full name and contact details')
                         ->schema([
                             TextInput::make('name')
                                 ->label(__('filament-panels::auth/pages/register.form.name.label'))
@@ -49,7 +49,7 @@ class ClientRegister extends BaseRegister
                                 ->placeholder('Enter complete address')
                                 ->columnSpanFull(),
                         ]),
-                    Step::make('Credentials')
+                    Step::make('Authentication')
                         ->description('Login credentials')
                         ->schema([
                             $this->getEmailFormComponent(),
@@ -95,6 +95,17 @@ class ClientRegister extends BaseRegister
             ->dehydrateStateUsing(fn(#[SensitiveParameter] $state) => Hash::make($state))
             ->same('passwordConfirmation')
             ->validationAttribute(__('filament-panels::auth/pages/register.form.password.validation_attribute'));
+    }
+
+    protected function getPasswordConfirmationFormComponent(): Component
+    {
+        return TextInput::make('passwordConfirmation')
+            ->label(__('filament-panels::auth/pages/register.form.password_confirmation.label'))
+            ->password()
+            ->placeholder(__('********'))
+            ->revealable(filament()->arePasswordsRevealable())
+            ->required()
+            ->dehydrated(false);
     }
 
     protected function handleRegistration(array $data): Model
