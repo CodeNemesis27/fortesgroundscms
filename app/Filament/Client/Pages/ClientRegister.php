@@ -10,6 +10,10 @@ use Filament\Schemas\Schema;
 use Filament\Support\Enums\Width;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Filament\Schemas\Components\Component;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rules\Password;
+use SensitiveParameter;
 
 class ClientRegister extends BaseRegister
 {
@@ -37,7 +41,7 @@ class ClientRegister extends BaseRegister
                                 ->tel()
                                 ->autofocus()
                                 ->required()
-                                ->placeholder('09156119397')
+                                ->placeholder('Enter contact no.')
                                 ->maxLength(255),
                             TextInput::make('address')
                                 ->required()
@@ -55,6 +59,42 @@ class ClientRegister extends BaseRegister
                 ])
 
             ]);
+    }
+
+    protected function getEmailFormComponent(): Component
+    {
+        return TextInput::make('email')
+            ->label(__('filament-panels::auth/pages/register.form.email.label'))
+            ->email()
+            ->required()
+            ->placeholder(__('juan_delacruz@gmail.com'))
+            ->maxLength(255)
+            ->unique($this->getUserModel());
+    }
+
+    protected function getPasswordFormComponent(): Component
+    {
+        return TextInput::make('password')
+            ->label(__('filament-panels::auth/pages/register.form.password.label'))
+            ->password()
+            ->revealable(filament()->arePasswordsRevealable())
+            ->required()
+            ->placeholder('********')
+            ->rules([
+                Password::min(8)
+                    ->letters()
+                    ->mixedCase()
+                    ->numbers()
+                    ->symbols()
+                    ->uncompromised(),
+            ])
+            ->validationMessages([
+                'min' => 'Password must be at least 8 characters.',
+            ])
+            ->showAllValidationMessages()
+            ->dehydrateStateUsing(fn(#[SensitiveParameter] $state) => Hash::make($state))
+            ->same('passwordConfirmation')
+            ->validationAttribute(__('filament-panels::auth/pages/register.form.password.validation_attribute'));
     }
 
     protected function handleRegistration(array $data): Model

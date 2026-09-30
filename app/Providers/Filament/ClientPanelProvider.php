@@ -38,6 +38,7 @@ class ClientPanelProvider extends PanelProvider
             ->path('/')
             ->login()
             ->profile()
+            ->brandName('FortesGrounds')
             ->registration(ClientRegister::class)
             ->font('Albert Sans')
             ->colors([
