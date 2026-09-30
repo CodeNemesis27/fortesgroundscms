@@ -30,6 +30,7 @@ use JohnRivera7\FilamentAntivirus\FilamentAntivirusPlugin;
 use Martin6363\SidebarResize\SidebarResizePlugin;
 use MKWebDesign\FilamentWatchdog\FilamentWatchdogPlugin;
 use Openplain\FilamentShadcnTheme\Color;
+use ShuvroRoy\FilamentSpatieLaravelBackup\FilamentSpatieLaravelBackupPlugin;
 use ShuvroRoy\FilamentSpatieLaravelHealth\FilamentSpatieLaravelHealthPlugin;
 
 class AdminPanelProvider extends PanelProvider
@@ -76,6 +77,9 @@ class AdminPanelProvider extends PanelProvider
                     ->navigationGroup('System Management')
                     ->navigationIcon('heroicon-s-archive-box'),
                 FilamentAntivirusPlugin::make()
+                    ->navigationGroup('System Management'),
+                FilamentSpatieLaravelBackupPlugin::make()
+                    ->navigationIcon('heroicon-s-server-stack')
                     ->navigationGroup('System Management')
             ])
             ->renderHook(PanelsRenderHook::TOPBAR_BEFORE, fn() => view('filament.announcement-banner'))

@@ -3,8 +3,10 @@
 namespace App\Providers;
 
 use App\Http\Responses\LogoutResponse;
+use App\Models\User;
 use F9Web\Health\Checks\OpCacheCheck;
 use Filament\Auth\Http\Responses\Contracts\LogoutResponse as LogoutResponseContract;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
 use Spatie\CpuLoadHealthCheck\CpuLoadCheck;
 use Spatie\Health\Checks\Checks\CacheCheck;
@@ -41,6 +43,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        Gate::define('create-backup', fn(User $user): bool => $user->isAdmin());
+        Gate::define('download-backup', fn(User $user): bool => $user->isAdmin());
+        Gate::define('delete-backup', fn(User $user): bool => $user->isAdmin());
         Health::checks([
             OptimizedAppCheck::new(),
             DebugModeCheck::new(),

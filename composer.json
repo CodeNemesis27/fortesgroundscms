@@ -23,8 +23,10 @@
         "mkwebdesign/filament-watchdog-v5": "^1.0",
         "openplain/filament-shadcn-theme": "^1.1",
         "qalainau/filament-inbox": "^1.1",
+        "shuvroroy/filament-spatie-laravel-backup": "^4.0",
         "shuvroroy/filament-spatie-laravel-health": "^3.3",
         "spatie/cpu-load-health-check": "^1.0",
+        "spatie/laravel-backup": "^10.3",
         "spatie/security-advisories-health-check": "^1.3",
         "ziming/laravel-domain-health-check": "^1.2",
         "ziming/laravel-memory-health-check": "^1.1"
