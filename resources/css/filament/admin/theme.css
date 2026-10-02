@@ -3,6 +3,7 @@
 @source '../../../../app/Filament/**/*';
 @source '../../../../resources/views/filament/**/*';
 @source '../../../../vendor/bokshorn-it/filament-activity-timeline/resources/**/*.blade.php';
+@source '../../../../vendor/awcodes/light-switch/resources/**/*.blade.php';
 
 :root {
     --text-lg: 1.125rem;

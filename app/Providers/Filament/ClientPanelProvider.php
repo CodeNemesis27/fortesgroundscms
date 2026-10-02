@@ -3,6 +3,7 @@
 namespace App\Providers\Filament;
 
 use App\Filament\Client\Pages\ClientRegister;
+use App\Filament\Client\Pages\Login;
 use Awcodes\LightSwitch\Enums\Alignment;
 use Awcodes\LightSwitch\LightSwitchPlugin;
 use Filament\Auth\MultiFactor\App\AppAuthentication;
@@ -36,7 +37,7 @@ class ClientPanelProvider extends PanelProvider
             ->default()
             ->id('client')
             ->path('/')
-            ->login()
+            ->login(Login::class)
             ->profile()
             ->brandName('FortesGrounds')
             ->registration(ClientRegister::class)
